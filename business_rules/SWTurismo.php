@@ -227,4 +227,26 @@ class SWTurismo extends DB
             echo "<script> alert('Não existe nenhuma conta de administrador com essas credenciais') </script>";
         }
     }
+
+    public function isAdminLoggedIn()
+    {
+        session_start();
+
+        // verify if there is admin logged in
+        if (isset($_SESSION['admin'])) {
+            header("location:admin.php");
+        }
+    }
+
+    public function isAdminLoggedOff()
+    {
+        session_start();
+
+        // verify if there is admin logged in
+        if (isset($_SESSION['admin'])) {
+            header("location:index.php");
+        }
+    }
+
+
 }
