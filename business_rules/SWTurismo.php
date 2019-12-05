@@ -196,6 +196,36 @@ class SWTurismo extends DB
         return $this->query($sql);
     }
 
+    public function search()
+    {
+        // verify if the search field is empty
+        if (empty($_GET['search'])) {
+            echo "<script> alert('Não existem resultados!') </script>";
+            return [];
+        } else {
+            // verify if the search field is not empty
+            if ($search = (!empty($_GET['search'])) ? $_GET['search'] : "") {
+                // sql query to select activities by name
+                $sql = 'SELECT * FROM activity WHERE name LIKE :search';
+            } else {
+                echo "<script> alert('Não existem resultados!') </script>";
+                return [];
+            }
+
+            // create array of fields for the search field
+            $fields = array('search' => $search."%");
+            // put the fields and the sql query + execute query
+            $searchQuery = $this->query($sql, $fields);
+
+            $rows = count($searchQuery);
+            if ($rows <= 0) {
+                echo "<script> alert('Não existem resultados!') </script>";
+                return [];
+            } else {
+                return $searchQuery;
+            }
+        }
+    }
 
     // -------------------------- // -------------------------- //
 
@@ -355,6 +385,4 @@ class SWTurismo extends DB
         // put the fields and the sql query + execute query
         $this->query($sql, $fields);
     }
-
-
 }
