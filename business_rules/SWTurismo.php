@@ -6,7 +6,7 @@ class SWTurismo extends DB
 {
     public function signUp($name, $username, $password)
     {
-        // sql query
+        // sql query to sign in
         $sql = "INSERT INTO user (name, username, password) VALUES (:name, :username, :password)";
 
         // create array of fields for query
@@ -24,7 +24,7 @@ class SWTurismo extends DB
 
     public function loginUser($username, $password)
     {
-        // sql query
+        // sql query to login
         $sql = 'SELECT * FROM user WHERE username = :username  AND password = :password';
 
         // create array of fields to log in
@@ -78,12 +78,12 @@ class SWTurismo extends DB
     public function listActivityAdmin($idAdmin = null)
     {
         if ($idAdmin) {
-            // sql query
+            // sql query to get the activities for the admin
             $sql = 'SELECT * FROM activity where idAdmin = :idAdmin';
             // know if there is an admin logged in
             $search = $this->query($sql, array('idAdmin' => $idAdmin));
         } else {
-            // sql query
+            // sql query to get the activities for the user
             $sql = 'SELECT * FROM activity';
             // put the sql query + execute query
             $search = $this->query($sql);
@@ -93,7 +93,7 @@ class SWTurismo extends DB
 
     public function listActivityUser($idUser)
     {
-        // sql query
+        // sql query to get a reservation
         $sql = 'SELECT * FROM reservation';
         // create array of fields to list the user activity
         $fields = array('idUser'=> $idUser);
@@ -103,7 +103,7 @@ class SWTurismo extends DB
 
     public function idActivity($idActivity)
     {
-        // sql query
+        // sql query to get the activity
         $sql = 'SELECT * FROM activity where idActivity = :idActivity';
         // get the activity id
         $search = $this->query($sql, array("idActivity" => $idActivity));
@@ -165,7 +165,7 @@ class SWTurismo extends DB
 
     public function activityImage($idImage)
     {
-        // sql query
+        // sql query to list the images
         $sql = 'SELECT * FROM image where idImage = :idImage';
         // know if there is an image with this id
         $search = $this->query($sql, array("idImage" => $idImage));
@@ -177,7 +177,7 @@ class SWTurismo extends DB
     {
         // set the date format
         $commentDate = date('Y-m-d');
-        // sql query
+        // sql query to insert a comment
         $sql = "INSERT INTO comment (comment, commentDate, idUser, idActivity) VALUES (:comment, :commentDate, :idUser, :idActivity)";
         // create array of fields for comments
         $fields = array(
@@ -191,7 +191,7 @@ class SWTurismo extends DB
 
     public function listComments()
     {
-        // sql query
+        // sql query to list the comments
         $sql = $sql = "SELECT * FROM comments JOIN user USING (idUser) JOIN activity USING (idActivity);";
         return $this->query($sql);
     }
@@ -339,4 +339,22 @@ class SWTurismo extends DB
         $fields = array('idActivity' => $idActivity);
         return $this->query($sql, $fields);
     }
+
+    public function changeReservationState($state, $idActivity, $idUser)
+    {
+        // sql query to update the reservation state
+        $sql = "UPDATE reservation SET state = :state WHERE idActivity = :idActivity AND idUser =:idUser";
+        // create array of fields for the change state of the reservation
+        $fields = array(
+            'state' => $state,
+            'idActivity' => $idActivity,
+            'idUser' => $idUser);
+
+        //var_dump($fields);
+
+        // put the fields and the sql query + execute query
+        $this->query($sql, $fields);
+    }
+
+
 }
