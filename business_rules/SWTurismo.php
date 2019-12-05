@@ -281,6 +281,26 @@ class SWTurismo extends DB
         $this->query($sql, array('idActivity' => $id));
     }
 
+    public function updateActivity($idActivity, $name, $desc, $price, $idAdmin)
+    {
+        //TODO: implement update img
+
+        // sql query to update an activity
+        $sql = "UPDATE activity SET name = :name, desc = :desc, price = :price, idAdmin = :idAdmin WHERE idActivity = :idActivity";
+        // create array of fields for the activity
+        $fields = array(
+            'name' => $name,
+            'desc' => $desc,
+            'price' => $price,
+            'idAdmin' => $idAdmin,
+            'idActivity' => $idActivity);
+
+        //var_dump($fields);
+
+        // put the fields and the sql query + execute query
+        $this->query($sql, $fields);
+    }
+
     public function deleteReservation($idUser, $idActivity)
     {
         // sql query to delete a reservation
@@ -288,7 +308,7 @@ class SWTurismo extends DB
         // put the sql query + execute query
         $this->query($sql, array('idUser' => $idUser, 'idActivity' => $idActivity));
     }
-    
+
     public function countActivity()
     {
         // sql query to count the activities
@@ -310,5 +330,4 @@ class SWTurismo extends DB
 
         //var_dump($result);
     }
-    
 }
