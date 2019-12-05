@@ -330,4 +330,13 @@ class SWTurismo extends DB
 
         //var_dump($result);
     }
+
+    public function listReservationsAdmin($idActivity)
+    {
+        // sql query to list the reservations
+        $sql = "SELECT * from reservation JOIN creditCard USING (idUser) where idActivity = :idActivity";
+        // put the fields and the sql query + execute query
+        $fields = array('idActivity' => $idActivity);
+        return $this->query($sql, $fields);
+    }
 }
