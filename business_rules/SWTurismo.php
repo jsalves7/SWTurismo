@@ -39,19 +39,39 @@ class SWTurismo extends DB
         if(isset($search[0]['idUser'])){
             $search = $search[0];
 
-            // create object user
+            // create object user with data from db
             $user = new User($search['idUser'], $search['name'], $search['username'], $search['password']);
 
             // start session and put the object to a session variable so it can used on other pages
             session_start();
             $_SESSION['username'] = $user;
 
-            // direction to login
+            //redirect page
             header("location:homepage.php");
 
         } else {
             // send an error message if there is no user with these credentials
             echo "<script> alert('O username e a password inseridos não correspondem a nenhuma conta') </script>";
+        }
+    }
+
+    public function isUserLoggedIn()
+    {
+        session_start();
+
+        // verify if there is user logged in
+        if (isset($_SESSION['username'])) {
+            header("location:homepage.php");
+        }
+    }
+
+    public function isUserLoggedOff()
+    {
+        session_start();
+
+        // verify if there is user logged in
+        if (!isset($_SESSION['username'])) {
+            header("location:index.php");
         }
     }
 
@@ -176,30 +196,35 @@ class SWTurismo extends DB
         return $this->query($sql);
     }
 
-    public function isUserLoggedIn()
-    {
-        session_start();
-
-        // verify if there is user logged in
-        if (isset($_SESSION['username'])) {
-            header("location:homepage.php");
-        }
-    }
-
-    public function isUserLoggedOff()
-    {
-        session_start();
-
-        // verify if there is user logged in
-        if (!isset($_SESSION['username'])) {
-            header("location:index.php");
-        }
-    }
 
     // -------------------------- // -------------------------- //
 
-    public function isAdminLoggedIn()
+    public function loginAdmin($username, $password)
     {
+        //sql query
+        $sql = 'SELECT * FROM admin WHERE username = :username AND password = :password';
+        // create array of fields to log in
+        $fields = array('username'=> $username, 'password' => hash('sha256', $password));
+        // put the fields and the sql query + execute query
+        $search = $this->query($sql, $fields);
 
+        // verify if there is anyone with those credentials
+        if (isset($search[0]['idAdmin'])) {
+            $search = $search[0];
+
+            // create object admin with data from db
+            $admin = new Admin($search['idAdmin'], $search['name'], $search['username'], $search['password']);
+
+            // start session and put the object to a session variable so it can used on other pages
+            session_start();
+            $_SESSION['admin'] = $admin;
+
+            //redirect page
+            header("location:admin.php");
+
+        } else {
+            // send an error message if there is no user with these credentials
+            echo "<script> alert('Não existe nenhuma conta de administrador com essas credenciais') </script>";
+        }
     }
 }
