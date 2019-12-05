@@ -385,4 +385,22 @@ class SWTurismo extends DB
         // put the fields and the sql query + execute query
         $this->query($sql, $fields);
     }
+
+    public function searchAdmin($search)
+    {
+        // sql query to search activity by name
+        $sql = 'SELECT * FROM activity WHERE name LIKE :search';
+        // create array of fields for the search field
+        $fields = array('search'=> $search."%");
+        // put the fields and the sql query + execute query
+        $searchQuery = $this->query($sql, $fields);
+
+        $rows = count($searchQuery);
+        if ($rows <= 0) {
+            echo "<script> alert('Não existem resultados!') </script>";
+            return [];
+        } else {
+            return $searchQuery;
+        }
+    }
 }
