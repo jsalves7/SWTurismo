@@ -273,6 +273,14 @@ class SWTurismo extends DB
         $this->query($sql, $fields);
     }
 
+    public function deleteActivity($id)
+    {
+        // sql query to delete an activity
+        $sql = 'DELETE FROM activity WHERE idActivity = :idActivity';
+        // put the sql query + execute query
+        $this->query($sql, array('idActivity' => $id));
+    }
+    
     public function countActivity()
     {
         // sql query to count the activities
@@ -294,4 +302,5 @@ class SWTurismo extends DB
 
         //var_dump($result);
     }
+    
 }
