@@ -248,5 +248,28 @@ class SWTurismo extends DB
         }
     }
 
+    public function addActivity($name, $desc, $price, $idAdmin, $img)
+    {
+        //sql query to insert an image
+        $sql = 'INSERT INTO image (name, imagePath) VALUES (:name, "img/")';
+        // strip whitespace (or other characters) from the string
+        $this->query($sql, array('name' => trim($img, " ")));
+        //sql query to select the image
+        $sql="SELECT * FROM image ORDER BY idImage DESC LIMIT 1";
+        // put the sql query + execute query
+        $img = $this->query($sql);
 
+        //sql query to insert an activity
+        $sql = "INSERT INTO activity (name, desc, price, idAdmin, idImage) VALUES (:name, :desc, :price, :idAdmin, :img)";
+        // create array of fields for the activity
+        $fields = array(
+            'name' => $name,
+            'desc' => $desc,
+            'price' => $price,
+            'idAdmin' => $idAdmin,
+            'img' => $img[0]['idImage']);
+
+        // put the fields and the sql query + execute query
+        $this->query($sql, $fields);
+    }
 }
