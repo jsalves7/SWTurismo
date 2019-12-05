@@ -280,6 +280,14 @@ class SWTurismo extends DB
         // put the sql query + execute query
         $this->query($sql, array('idActivity' => $id));
     }
+
+    public function deleteReservation($idUser, $idActivity)
+    {
+        // sql query to delete a reservation
+        $sql = 'DELETE FROM reservation WHERE idUser = :idUser AND idActivity = :idActivity';
+        // put the sql query + execute query
+        $this->query($sql, array('idUser' => $idUser, 'idActivity' => $idActivity));
+    }
     
     public function countActivity()
     {
