@@ -42,6 +42,6 @@ class Admin
     public function logout()
     {
         session_destroy();
-        header('');
+        header('location:index.php');
     }
 }
