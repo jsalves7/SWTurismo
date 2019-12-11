@@ -7,23 +7,14 @@
 
     $conn->isAdminLoggedOff();
 
-    $idActivity = $conn->idActivity($_GET['id']);
-
     $success = "";
 
-    if (isset($_POST['state'])){
-        $conn->changeReservationState($_POST['state'], $idActivity['idActivity'], $_POST['idUser']);
-
-        $success =  "<script> alert('O estado da atividade foi alterado com sucesso!') </script>";
+    if (isset($_GET['deleted'])) {
+        $success =  "<script> alert('A atividade foi eliminada com sucesso!') </script>";
     }
 
-    if ($idActivity == null){
-        header("location:admin.php");
-    }
-
-    // if logout button is pressed
-    if (isset($_GET['action'])){
-        if ($_GET['action'] == 'logout'){
+    if (isset($_GET['action'])) {
+        if ($_GET['action'] == 'logout') {
             $_SESSION['admin']->logout();
         }
     }
