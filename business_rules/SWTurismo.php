@@ -278,7 +278,7 @@ class SWTurismo extends DB
         }
     }
 
-    public function addActivity($name, $desc, $price, $idAdmin, $img)
+    public function addActivity($name, $desc, $idAdmin, $img)
     {
         // sql query to insert an image
         $sql = 'INSERT INTO image (name, imagePath) VALUES (:name, "img/")';
@@ -290,12 +290,11 @@ class SWTurismo extends DB
         $img = $this->query($sql);
 
         // sql query to insert an activity
-        $sql = "INSERT INTO activity (name, desc, price, idAdmin, idImage) VALUES (:name, :desc, :price, :idAdmin, :img)";
+        $sql = "INSERT INTO activity (name, desc, idAdmin, idImage) VALUES (:name, :desc, :idAdmin, :img)";
         // create array of fields for the activity
         $fields = array(
             'name' => $name,
             'desc' => $desc,
-            'price' => $price,
             'idAdmin' => $idAdmin,
             'img' => $img[0]['idImage']);
 
@@ -311,17 +310,16 @@ class SWTurismo extends DB
         $this->query($sql, array('idActivity' => $id));
     }
 
-    public function updateActivity($idActivity, $name, $desc, $price, $idAdmin)
+    public function updateActivity($idActivity, $name, $desc, $idAdmin)
     {
         //TODO: implement update img
 
         // sql query to update an activity
-        $sql = "UPDATE activity SET name = :name, desc = :desc, price = :price, idAdmin = :idAdmin WHERE idActivity = :idActivity";
+        $sql = "UPDATE activity SET name = :name, desc = :desc, idAdmin = :idAdmin WHERE idActivity = :idActivity";
         // create array of fields for the activity
         $fields = array(
             'name' => $name,
             'desc' => $desc,
-            'price' => $price,
             'idAdmin' => $idAdmin,
             'idActivity' => $idActivity);
 
