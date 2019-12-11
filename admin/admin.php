@@ -13,6 +13,7 @@
         $success =  "<script> alert('A atividade foi eliminada com sucesso!') </script>";
     }
 
+    // if logout button is pressed
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'logout') {
             $_SESSION['admin']->logout();
