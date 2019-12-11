@@ -102,13 +102,13 @@
                         </form>
                     </td>
 
-                    <td class="sectionValue">
+                    <td>
                         <?php echo openssl_decrypt(base64_decode($value['cardNumber']), $method, $password, OPENSSL_RAW_DATA, $iv);?>
                     </td>
-                    <td class="sectionValue">
+                    <td>
                         <?php echo openssl_decrypt(base64_decode($value['cardType']), $method, $password, OPENSSL_RAW_DATA, $iv);?>
                     </td>
-                    <td class="sectionValue">
+                    <td>
                         <?php echo openssl_decrypt(base64_decode($value['securityCode']), $method, $password, OPENSSL_RAW_DATA, $iv);?>
                     </td>
                 <?php } ?>
