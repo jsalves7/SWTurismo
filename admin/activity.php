@@ -17,6 +17,7 @@
         $success =  "<script> alert('O estado da atividade foi alterado com sucesso!') </script>";
     }
 
+    // if activity does not exist
     if ($idActivity == null){
         header("location:admin.php");
     }
