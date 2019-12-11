@@ -38,13 +38,15 @@
         <div class="login-container">
             <h1>Login Administrador</h1>
 
-            <label for="username"><b>Username</b></label>
-            <input type="text" id="username" placeholder="Username" name="username" required>
+            <form class="login-form" method="post">
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Username" name="username" required>
 
-            <label for="password"><b>Password</b></label>
-            <input type="password" id="password" placeholder="Password" name="password" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Password" name="password" required>
 
-            <button type="submit"><b>Login</b></button>
+                <button type="submit"><b>Login</b></button>
+            </form>
         </div>
 
         <footer class="footer">
