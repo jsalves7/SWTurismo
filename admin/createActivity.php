@@ -63,15 +63,17 @@
             <h2>Criar Atividade</h2>
         </div>
         <div class="createActivityForm-container">
-            <label class="labelName" for="name"><b>Nome</b></label>
-            <input type="text" placeholder="Nome" name="name" required>
+            <form class="createActivity-form" method="post" enctype="multipart/form-data">
+                <label class="labelName" for="name"><b>Nome</b></label>
+                <input type="text" placeholder="Nome" name="name" required>
 
-            <label class="labelDescription" for="desc"><b>Descrição</b></label>
-            <textarea cols="30" rows="10" placeholder="Descrição..." name="desc" required></textarea>
+                <label class="labelDescription" for="desc"><b>Descrição</b></label>
+                <textarea cols="30" rows="10" placeholder="Descrição..." name="desc" required></textarea>
 
-            <label class="labelImage" for="image"><b>Imagem</b></label>
-            <input type="file" name="image" required>
-            <button type="submit"><b>Guardar</b></button>
+                <label class="labelImage" for="image"><b>Imagem</b></label>
+                <input type="file" name="image" required>
+                <button type="submit"><b>Guardar</b></button>
+            </form>
         </div>
     </div>
 
