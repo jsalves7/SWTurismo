@@ -7,13 +7,15 @@ class Reservation
     private $idActivity;
     private $reservationDate;
     private $state;
+    private $idCreditCard;
 
-    public function __construct($idUser, $idActivity, $reservationDate, $state)
+    public function __construct($idUser, $idActivity, $reservationDate, $state, $idCreditCard)
     {
         $this->idUser = $idUser;
         $this->idActivity = $idActivity;
         $this->reservationDate = $reservationDate;
         $this->state = $state;
+        $this->idCreditCard = $idCreditCard;
     }
 
     /**
