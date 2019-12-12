@@ -114,22 +114,23 @@ class SWTurismo extends DB
         return $search[0];
     }
 
-    public function reserveActivity($idUser, $idActivity, $reservationDate, $name, $cardNumber, $expiry, $cardType, $securityCode)
+    public function reserveActivity($idUser, $idActivity, $reservationDate, $idCreditCard, $name, $cardNumber, $expiry, $cardType, $securityCode)
     {
         // sql query for reservations
-        $sqlReservation = "INSERT INTO reservation (idUser, idActivity, reservationDate, state) VALUES (:idUser, :idActivity, :reservationDate, :state)";
+        $sqlReservation = "INSERT INTO reservation (idUser, idActivity, reservationDate, state, idCreditCard) VALUES (:idUser, :idActivity, :reservationDate, :state, :idCreditCard)";
         // create array of fields for reservations
         $fieldsReservation = array(
             'idUser' => $idUser,
             'idActivity' => $idActivity,
             'reservationDate' => $reservationDate,
-            'state' => 'reservada');
+            'state' => 'reservada',
+            'idCreditCard' => $idCreditCard);
 
         // put the fields and the sql query + execute query
         $this->query($sqlReservation, $fieldsReservation);
 
         // sql query for creditCard
-        $sqlCreditCard = "INSERT INTO creditCard (name, cardNumber, expiry, cardType, securityCode, idUser) VALUES (:name, :cardNumber, :expiry, :cardType, :securityCode, :idUser)";
+        $sqlCreditCard = "INSERT INTO creditCard (name, cardNumber, expiry, cardType, securityCode) VALUES (:name, :cardNumber, :expiry, :cardType, :securityCode)";
 
         // create array of fields for the credit card
         $fieldsCreditCard = array(
@@ -362,7 +363,7 @@ class SWTurismo extends DB
     public function listReservationsAdmin($idActivity)
     {
         // sql query to list the reservations
-        $sql = "SELECT * from reservation JOIN creditCard USING (idUser) where idActivity = :idActivity";
+        $sql = "SELECT * from reservation where idActivity = :idActivity";
         // put the fields and the sql query + execute query
         $fields = array('idActivity' => $idActivity);
         return $this->query($sql, $fields);
