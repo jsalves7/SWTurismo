@@ -6,16 +6,14 @@ class Activity
     private $idActivity;
     private $name;
     private $desc;
-    private $price;
     private $idAdmin;
     private $idImage;
 
-    public function __construct($idActivity, $name, $desc, $price, $idAdmin, $idImage)
+    public function __construct($idActivity, $name, $desc, $idAdmin, $idImage)
     {
         $this->idActivity = $idActivity;
         $this->name = $name;
         $this->desc = $desc;
-        $this->price = $price;
         $this->idAdmin = $idAdmin;
         $this->idImage = $idImage;
     }
@@ -30,13 +28,4 @@ class Activity
         return $this->name;
     }
 
-    /**
-     * function to get the activity price
-     *
-     * @return mixed
-     */
-    public function activityPrice()
-    {
-        return $this->price;
-    }
 }
