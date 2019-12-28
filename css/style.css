@@ -1,0 +1,494 @@
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif; }
+
+.container {
+  display: grid;
+  grid-template-rows: 88px auto; }
+  .container .menu-container {
+    background-color: #0FCBC7; }
+    .container .menu-container a {
+      text-decoration: none; }
+      .container .menu-container a h1 {
+        color: white;
+        margin-left: 18%;
+        transition: 0.5s; }
+        .container .menu-container a h1:hover {
+          color: grey; }
+    .container .menu-container #menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 20px;
+      right: 27%;
+      z-index: 2;
+      display: flex; }
+      .container .menu-container #menu li {
+        display: flex; }
+        .container .menu-container #menu li a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1em;
+          padding: 15px;
+          transition: 0.5s; }
+          .container .menu-container #menu li a:hover {
+            color: grey; }
+    .container .menu-container .searchForm {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+      align-items: center;
+      margin-top: -46px;
+      margin-right: 12%; }
+      .container .menu-container .searchForm input[type=text] {
+        border-radius: 5px;
+        outline: none; }
+      .container .menu-container .searchForm button {
+        background-color: #3C4447;
+        border: none;
+        color: white;
+        padding: 2.7px 10px;
+        text-align: center;
+        margin-left: 5px;
+        cursor: pointer;
+        transition: 0.5s;
+        border-radius: 5px;
+        outline: none; }
+        .container .menu-container .searchForm button:hover {
+          color: grey; }
+  .container .login-container {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh; }
+    .container .login-container h1 {
+      margin: 75px; }
+    .container .login-container .login-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: -2%; }
+      .container .login-container .login-form label {
+        margin-right: 21%; }
+      .container .login-container .login-form .labelName {
+        margin-right: 22%; }
+      .container .login-container .login-form input[type=text], .container .login-container .login-form input[type=password] {
+        width: 25%;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border: 1px solid #3C4447;
+        box-sizing: border-box;
+        font-size: 1em;
+        border-radius: 5px;
+        outline: none; }
+      .container .login-container .login-form button {
+        width: 25%;
+        background-color: #0FCBC7;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none; }
+        .container .login-container .login-form button a {
+          width: auto;
+          text-decoration: none;
+          color: black;
+          transition: 0.5s; }
+          .container .login-container .login-form button a:hover {
+            color: grey; }
+        .container .login-container .login-form button:hover {
+          color: grey; }
+  .container footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+    background-color: #3C4447;
+    width: 100%;
+    height: 30vh; }
+    .container footer .footerText-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-wrap: wrap; }
+      .container footer .footerText-container h1 {
+        color: white;
+        font-size: 3em;
+        margin-left: 10%; }
+      .container footer .footerText-container h3 {
+        color: white;
+        font-size: 1em;
+        margin-left: 19%;
+        margin-top: -4%; }
+      .container footer .footerText-container p {
+        color: white;
+        font-size: 0.9em;
+        margin-left: 5%;
+        margin-top: 5%; }
+      .container footer .footerText-container .footerSocial-container h2 {
+        color: white;
+        margin-top: 8%;
+        margin-left: 30%; }
+      .container footer .footerText-container .footerSocial-container ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: 5%;
+        margin-right: 33%;
+        text-decoration: none; }
+        .container footer .footerText-container .footerSocial-container ul li {
+          margin-right: 50px; }
+  .container .activitiesTable-container {
+    height: 60vh; }
+    .container .activitiesTable-container .activityTitle-container {
+      display: flex;
+      justify-content: center; }
+      .container .activitiesTable-container .activityTitle-container h2 {
+        font-weight: normal; }
+    .container .activitiesTable-container a {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 25%;
+      margin-left: 37.5%;
+      text-decoration: none;
+      font-size: 1.2em; }
+      .container .activitiesTable-container a button {
+        width: 100%;
+        background-color: #0FCBC7;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none; }
+        .container .activitiesTable-container a button:hover {
+          color: grey; }
+    .container .activitiesTable-container .table-container {
+      display: flex;
+      justify-content: center; }
+  .container .createActivity-container {
+    height: 70vh; }
+    .container .createActivity-container .activityTitle-container {
+      display: flex;
+      justify-content: center; }
+      .container .createActivity-container .activityTitle-container h2 {
+        font-weight: normal; }
+    .container .createActivity-container .createActivityForm-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .container .createActivity-container .createActivityForm-container .createActivity-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        .container .createActivity-container .createActivityForm-container .createActivity-form input[type=text], .container .createActivity-container .createActivityForm-container .createActivity-form textarea, .container .createActivity-container .createActivityForm-container .createActivity-form input[type=file] {
+          width: 25%;
+          padding: 15px 20px;
+          margin: 15px 0;
+          border: 1px solid #3C4447;
+          box-sizing: border-box;
+          font-size: 1em;
+          border-radius: 3px;
+          outline: none; }
+        .container .createActivity-container .createActivityForm-container .createActivity-form .labelName {
+          margin-right: 22.7%; }
+        .container .createActivity-container .createActivityForm-container .createActivity-form .labelDescription {
+          margin-right: 21.2%; }
+        .container .createActivity-container .createActivityForm-container .createActivity-form .labelImage {
+          margin-right: 22%; }
+        .container .createActivity-container .createActivityForm-container .createActivity-form button {
+          width: 25%;
+          background-color: #0FCBC7;
+          color: black;
+          padding: 14px 20px;
+          margin: 25px 0px;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none; }
+          .container .createActivity-container .createActivityForm-container .createActivity-form button:hover {
+            color: grey; }
+  .container .activitiesTable-container {
+    display: flex;
+    flex-direction: column;
+    height: 60vh; }
+    .container .activitiesTable-container .activityTitle-container {
+      display: flex;
+      justify-content: center; }
+      .container .activitiesTable-container .activityTitle-container h2 {
+        font-weight: normal; }
+    .container .activitiesTable-container .table-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin-top: 3%;
+      width: 60%; }
+      .container .activitiesTable-container .table-container table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+        margin-left: 33%; }
+      .container .activitiesTable-container .table-container tr {
+        width: 50%; }
+        .container .activitiesTable-container .table-container tr td {
+          transition: 0.5s; }
+          .container .activitiesTable-container .table-container tr td a {
+            color: black;
+            margin: auto; }
+            .container .activitiesTable-container .table-container tr td a:hover {
+              color: grey;
+              text-decoration: underline; }
+      .container .activitiesTable-container .table-container td, .container .activitiesTable-container .table-container th {
+        border: 1px solid grey;
+        padding: 8px;
+        width: 20%; }
+      .container .activitiesTable-container .table-container tr:nth-child(even) {
+        background-color: #f2f2f2; }
+  .container .updateActivity-container {
+    display: flex;
+    flex-direction: column;
+    height: 60vh; }
+    .container .updateActivity-container .activityTitle-container {
+      display: flex;
+      justify-content: center; }
+      .container .updateActivity-container .activityTitle-container h2 {
+        font-weight: normal;
+        margin: 1.5%; }
+    .container .updateActivity-container .updateActivityForm-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .container .updateActivity-container .updateActivityForm-container .updateActivity-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        .container .updateActivity-container .updateActivityForm-container .updateActivity-form input[type=text], .container .updateActivity-container .updateActivityForm-container .updateActivity-form textarea {
+          width: 25%;
+          padding: 15px 20px;
+          margin: 15px 0;
+          border: 1px solid #3C4447;
+          box-sizing: border-box;
+          font-size: 1em;
+          border-radius: 3px;
+          outline: none; }
+        .container .updateActivity-container .updateActivityForm-container .updateActivity-form .labelName {
+          margin-right: 22.7%; }
+        .container .updateActivity-container .updateActivityForm-container .updateActivity-form .labelDescription {
+          margin-right: 21.2%; }
+        .container .updateActivity-container .updateActivityForm-container .updateActivity-form button {
+          width: 25%;
+          background-color: #0FCBC7;
+          color: black;
+          padding: 14px 20px;
+          margin: 25px 0px;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none; }
+          .container .updateActivity-container .updateActivityForm-container .updateActivity-form button:hover {
+            color: grey; }
+  .container .title-container {
+    display: flex;
+    justify-content: center; }
+  .container .activities-container {
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column; }
+    .container .activities-container .activities {
+      width: 60%;
+      padding: 20px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+      margin-left: 8%; }
+      .container .activities-container .activities .item {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box; }
+        .container .activities-container .activities .item .comment-btn, .container .activities-container .activities .item .delete-btn {
+          background-color: #0FCBC7;
+          color: black;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none;
+          text-decoration: none; }
+          .container .activities-container .activities .item .comment-btn:hover, .container .activities-container .activities .item .delete-btn:hover {
+            color: grey; }
+        .container .activities-container .activities .item button {
+          width: 58%;
+          background-color: #0FCBC7;
+          color: black;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none; }
+          .container .activities-container .activities .item button a {
+            width: auto;
+            text-decoration: none;
+            color: black;
+            transition: 0.5s; }
+            .container .activities-container .activities .item button a:hover {
+              color: grey; }
+        .container .activities-container .activities .item .activity-item {
+          margin-top: 10%; }
+          .container .activities-container .activities .item .activity-item img {
+            width: 220px;
+            height: 200px; }
+  .container .display-comments-container {
+    display: flex;
+    width: 100%;
+    height: 25vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #0FCBC7;
+    color: white; }
+    .container .display-comments-container .display-comments {
+      width: 60%;
+      padding: 20px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+      margin-left: 8%; }
+      .container .display-comments-container .display-comments .item {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box; }
+  .container .reserve-activity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; }
+    .container .reserve-activity-container .reserve-form {
+      margin-top: 1%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .container .reserve-activity-container .reserve-form input[type=text], .container .reserve-activity-container .reserve-form [type=date], .container .reserve-activity-container .reserve-form [type=number] {
+        width: 180%;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border: 1px solid #3C4447;
+        box-sizing: border-box;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none; }
+      .container .reserve-activity-container .reserve-form .labelDate {
+        margin-right: 165%; }
+      .container .reserve-activity-container .reserve-form .labelName {
+        margin-right: 162%; }
+      .container .reserve-activity-container .reserve-form .labelCardType {
+        margin-right: 159%; }
+      .container .reserve-activity-container .reserve-form .labelCardNumber {
+        margin-right: 155%; }
+      .container .reserve-activity-container .reserve-form .labelCardExpiry {
+        margin-right: 154%; }
+      .container .reserve-activity-container .reserve-form .labelCardCVV {
+        margin-right: 167%; }
+      .container .reserve-activity-container .reserve-form #reserve-btn {
+        width: 180%;
+        background-color: #0FCBC7;
+        color: black;
+        padding: 14px 20px;
+        margin: 25px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none; }
+        .container .reserve-activity-container .reserve-form #reserve-btn:hover {
+          color: grey; }
+      .container .reserve-activity-container .reserve-form #cardType {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.3;
+        padding: .6em 1.4em .5em .8em;
+        width: 180%;
+        margin: 15px 0;
+        box-sizing: border-box;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: white;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%; }
+  .container .comment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh; }
+    .container .comment-container .comment-form {
+      margin-top: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .container .comment-container .comment-form textarea {
+        width: 250%;
+        height: 25vh;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border: 1px solid #3C4447;
+        box-sizing: border-box;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none; }
+      .container .comment-container .comment-form button {
+        width: 250%;
+        background-color: #0FCBC7;
+        color: black;
+        padding: 14px 20px;
+        margin: 25px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none; }
+        .container .comment-container .comment-form button:hover {
+          color: grey; }
+      .container .comment-container .comment-form .label-comment {
+        margin-right: 209%; }
+
+/*# sourceMappingURL=style.css.map */
