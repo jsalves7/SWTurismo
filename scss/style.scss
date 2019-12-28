@@ -1,0 +1,604 @@
+$navBar: #0FCBC7;
+$footer: #3C4447;
+
+body{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 88px auto;
+  .menu-container {
+    background-color: $navBar;
+    a {
+      text-decoration: none;
+      h1 {
+        color: white;
+        margin-left: 18%;
+        transition: 0.5s;
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+    #menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 20px;
+      right: 27%;
+      z-index: 2;
+      display: flex;
+      li {
+        display: flex;
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1em;
+          padding: 15px;
+          transition: 0.5s;
+          &:hover {
+            color: grey;
+          }
+        }
+      }
+    }
+    .searchForm {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+      align-items: center;
+      margin-top: -46px;
+      margin-right: 12%;
+      input[type=text] {
+        border-radius: 5px;
+        outline: none;
+      }
+      button {
+        background-color: $footer;
+        border: none;
+        color: white;
+        padding: 2.7px 10px;
+        text-align: center;
+        margin-left: 5px;
+        cursor: pointer;
+        transition: 0.5s;
+        border-radius: 5px;
+        outline: none;
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+  }
+  .login-container {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+    h1 {
+      margin: 75px;
+    }
+    .login-form{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: -2%;
+      label {
+        margin-right: 21%;
+      }
+      .labelName{
+        margin-right: 22%;
+      }
+      input[type=text], input[type=password] {
+        width: 25%;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border: 1px solid $footer;
+        box-sizing: border-box;
+        font-size: 1em;
+        border-radius: 5px;
+        outline: none;
+      }
+      button{
+        width: 25%;
+        background-color: $navBar;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none;
+        a{
+          width: auto;
+          text-decoration: none;
+          color: black;
+          transition: 0.5s;
+          &:hover{
+            color: grey;
+          }
+        }
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+  }
+  footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+    background-color: $footer;
+    width: 100%;
+    height: 30vh;
+    .footerText-container{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      h1{
+        color: white;
+        font-size: 3em;
+        margin-left: 10%;
+      }
+      h3{
+        color: white;
+        font-size: 1em;
+        margin-left: 19%;
+        margin-top: -4%;
+      }
+      p{
+        color: white;
+        font-size: 0.9em;
+        margin-left: 5%;
+        margin-top: 5%;
+      }
+      .footerSocial-container{
+        h2{
+          color: white;
+          margin-top: 8%;
+          margin-left: 30%;
+        }
+        ul{
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: flex-end;
+          margin-top: 5%;
+          margin-right: 33%;
+          text-decoration: none;
+          li{
+            margin-right: 50px;
+          }
+        }
+      }
+    }
+  }
+  .activitiesTable-container{
+    height: 60vh;
+    .activityTitle-container{
+      display: flex;
+      justify-content: center;
+      h2{
+        font-weight: normal;
+      }
+    }
+    a{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 25%;
+      margin-left: 37.5%;
+      text-decoration: none;
+      font-size: 1.2em;
+      button{
+        width: 100%;
+        background-color: $navBar;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none;
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+    .table-container{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .createActivity-container{
+    height: 70vh;
+    .activityTitle-container{
+      display: flex;
+      justify-content: center;
+      h2{
+        font-weight: normal;
+      }
+    }
+    .createActivityForm-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .createActivity-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input[type=text], textarea, input[type=file] {
+          width: 25%;
+          padding: 15px 20px;
+          margin: 15px 0;
+          border: 1px solid $footer;
+          box-sizing: border-box;
+          font-size: 1em;
+          border-radius: 3px;
+          outline: none;
+        }
+        .labelName {
+          margin-right: 22.7%;
+        }
+        .labelDescription {
+          margin-right: 21.2%;
+        }
+        .labelImage {
+          margin-right: 22%;
+        }
+        button {
+          width: 25%;
+          background-color: $navBar;
+          color: black;
+          padding: 14px 20px;
+          margin: 25px 0px;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none;
+          &:hover {
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+  .activitiesTable-container{
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    .activityTitle-container{
+      display: flex;
+      justify-content: center;
+      h2{
+        font-weight: normal;
+      }
+    }
+    .table-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin-top: 3%;
+      width: 60%;
+      table{
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+        margin-left: 33%;
+      }
+      tr{
+        width: 50%;
+        td{
+          transition: 0.5s;
+          a{
+            color: black;
+            margin: auto;
+            &:hover {
+              color: grey;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      td, th{
+        border: 1px solid grey;
+        padding: 8px;
+        width: 20%;
+      }
+      tr:nth-child(even){
+        background-color: #f2f2f2;
+      }
+    }
+  }
+  .updateActivity-container{
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    .activityTitle-container{
+      display: flex;
+      justify-content: center;
+      h2{
+        font-weight: normal;
+        margin: 1.5%;
+      }
+    }
+    .updateActivityForm-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .updateActivity-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input[type=text], textarea {
+          width: 25%;
+          padding: 15px 20px;
+          margin: 15px 0;
+          border: 1px solid $footer;
+          box-sizing: border-box;
+          font-size: 1em;
+          border-radius: 3px;
+          outline: none;
+        }
+        .labelName {
+          margin-right: 22.7%;
+        }
+        .labelDescription {
+          margin-right: 21.2%;
+        }
+        button {
+          width: 25%;
+          background-color: $navBar;
+          color: black;
+          padding: 14px 20px;
+          margin: 25px 0px;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none;
+          &:hover {
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+  //---------------------//---------------------//
+  .title-container{
+    display: flex;
+    justify-content: center;
+  }
+  .activities-container{
+    display:flex;
+    width: 100%;
+    height: 70vh;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    .activities{
+      width: 60%;
+      padding: 20px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+      margin-left: 8%;
+      .item{
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        .comment-btn, .delete-btn{
+          background-color: $navBar;
+          color: black;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none;
+          text-decoration: none;
+          &:hover{
+            color: grey;
+          }
+        }
+        button{
+          width: 58%;
+          background-color: $navBar;
+          color: black;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          font-size: 1em;
+          border-radius: 5px;
+          transition: 0.5s;
+          outline: none;
+          a{
+            width: auto;
+            text-decoration: none;
+            color: black;
+            transition: 0.5s;
+            &:hover{
+              color: grey;
+            }
+          }
+        }
+        .activity-item{
+          margin-top: 10%;
+          img{
+            width: 220px;
+            height: 200px;
+          }
+        }
+      }
+    }
+  }
+  .display-comments-container{
+    display:flex;
+    width: 100%;
+    height: 25vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: $navBar;
+    color: white;
+    .display-comments{
+      width: 60%;
+      padding: 20px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 50px;
+      margin-left: 8%;
+      .item {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        .comment-item{
+        }
+      }
+    }
+
+  }
+  .reserve-activity-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    .reserve-form{
+      margin-top: 1%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      input[type=text], [type=date], [type=number]{
+        width: 180%;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border: 1px solid $footer;
+        box-sizing: border-box;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none;
+      }
+      .labelDate{
+        margin-right: 165%;
+      }
+      .labelName{
+        margin-right: 162%;
+      }
+      .labelCardType{
+        margin-right: 159%;
+      }
+      .labelCardNumber{
+        margin-right: 155%;
+      }
+      .labelCardExpiry{
+        margin-right: 154%;
+      }
+      .labelCardCVV{
+        margin-right: 167%;
+      }
+      #reserve-btn {
+        width: 180%;
+        background-color: $navBar;
+        color: black;
+        padding: 14px 20px;
+        margin: 25px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none;
+        &:hover {
+          color: grey;
+        }
+      }
+      #cardType{
+        font-size: 16px;
+        color: #444;
+        line-height: 1.3;
+        padding: .6em 1.4em .5em .8em;
+        width: 180%;
+        margin: 15px 0;
+        box-sizing: border-box;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: white;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%;
+      }
+    }
+  }
+  .comment-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+    .comment-form {
+      margin-top: 2%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      textarea {
+        width: 250%;
+        height: 25vh;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border: 1px solid $footer;
+        box-sizing: border-box;
+        font-size: 1em;
+        border-radius: 3px;
+        outline: none;
+      }
+      button{
+        width: 250%;
+        background-color: $navBar;
+        color: black;
+        padding: 14px 20px;
+        margin: 25px 0;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: 0.5s;
+        outline: none;
+        &:hover {
+          color: grey;
+        }
+      }
+      .label-comment{
+        margin-right: 209%;
+      }
+    }
+  }
+}
