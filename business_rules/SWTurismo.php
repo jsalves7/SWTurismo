@@ -20,6 +20,7 @@ class SWTurismo extends DB
 
         // login using the info from the signUp
         $this->loginUser($username, $password);
+
     }
 
     public function loginUser($username, $password)
@@ -94,7 +95,7 @@ class SWTurismo extends DB
     public function listActivityUser($idUser)
     {
         // sql query to get a reservation
-        $sql = 'SELECT * FROM reservation';
+        $sql = 'SELECT * FROM reservation JOIN activity USING (idActivity) WHERE idUser = :idUser';
         // create array of fields to list the user activity
         $fields = array('idUser'=> $idUser);
         // put the fields and the sql query + execute query
@@ -114,31 +115,21 @@ class SWTurismo extends DB
         return $search[0];
     }
 
-    public function reserveActivity($idUser, $idActivity, $reservationDate, $idCreditCard, $name, $cardNumber, $expiry, $cardType, $securityCode)
+    public function reserveActivity($idUser, $idActivity, $reservationDate, $cardName, $cardType, $cardNumber, $cardExpiry, $cardCVV)
     {
         // sql query for reservations
-        $sqlReservation = "INSERT INTO reservation (idUser, idActivity, reservationDate, state, idCreditCard) VALUES (:idUser, :idActivity, :reservationDate, :state, :idCreditCard)";
+        $sqlReservation = "INSERT INTO reservation (idUser, idActivity, reservationDate, state, cardName, cardType, cardNumber, cardExpiry, cardCVV) VALUES (:idUser, :idActivity, :reservationDate, :state, :cardName, :cardType, :cardNumber, :cardExpiry, :cardCVV)";
         // create array of fields for reservations
         $fieldsReservation = array(
             'idUser' => $idUser,
             'idActivity' => $idActivity,
             'reservationDate' => $reservationDate,
             'state' => 'reservada',
-            'idCreditCard' => $idCreditCard);
-
-        // put the fields and the sql query + execute query
-        $this->query($sqlReservation, $fieldsReservation);
-
-        // sql query for creditCard
-        $sqlCreditCard = "INSERT INTO creditCard (name, cardNumber, expiry, cardType, securityCode) VALUES (:name, :cardNumber, :expiry, :cardType, :securityCode)";
-
-        // create array of fields for the credit card
-        $fieldsCreditCard = array(
-            'name' => $name,
-            'cardNumber' => $cardNumber,
-            'expiry' => $expiry,
+            'cardName' => $cardName,
             'cardType' => $cardType,
-            'securityCode' => $securityCode);
+            'cardNumber' => $cardNumber,
+            'cardExpiry' => $cardExpiry,
+            'cardCVV' => $cardCVV);
 
         // aes encrypt/decrypt reference: https://odan.github.io/2017/08/10/aes-256-encryption-and-decryption-in-php-and-csharp.html
 
@@ -151,17 +142,29 @@ class SWTurismo extends DB
         // IV must be exact 16 chars (128 bit)
         $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
-        // getting each key/value from the fieldsCreditCard array and encoding it
+        // getting each card key/value from the fieldsReservation array and encoding it
         // OPENSSL_RAW_DATA -> tells the openssl_encrypt to return the cipherText in rawData
-        foreach ($fieldsCreditCard as $key => $value){
-            $fieldsCreditCard[$key] = base64_encode(openssl_encrypt($value, $method, $password, OPENSSL_RAW_DATA, $iv));
+
+        foreach ($fieldsReservation as $key => $value){
+            if (substr($key, 0, 4) == "card") {
+                $fieldsReservation[$key] =
+                    base64_encode(openssl_encrypt($value, $method, $password, OPENSSL_RAW_DATA, $iv));
+            }
         }
 
-        // reference a credit card to a user
-        $fieldsCreditCard['idUser'] = $idUser;
-
         // put the fields and the sql query + execute query
-        $this->query($sqlCreditCard, $fieldsCreditCard);
+        $this->query($sqlReservation, $fieldsReservation);
+
+        //var_dump($fieldsReservation);
+
+    }
+
+    public function deleteReservation($idActivity)
+    {
+        // sql query to delete a reservation
+        $sql = 'DELETE FROM reservation WHERE idActivity = :idActivity';
+        // put the sql query + execute query
+        $this->query($sql, array('idActivity' => $idActivity));
     }
 
     public function activityImage($idImage)
@@ -171,7 +174,7 @@ class SWTurismo extends DB
         // know if there is an image with this id
         $search = $this->query($sql, array("idImage" => $idImage));
 
-        return $search[0]['name'].$search[0]['imagePath'];
+        return $search[0]['imagePath'].$search[0]['name'];
     }
 
     public function commentActivity($comment, $idUser, $idActivity)
@@ -188,12 +191,14 @@ class SWTurismo extends DB
             'idActivity' => $idActivity);
         // put the fields and the sql query + execute query
         $this->query($sql, $fields);
+
+        //var_dump($fields);
     }
 
     public function listComments()
     {
         // sql query to list the comments
-        $sql = $sql = "SELECT * FROM comments JOIN user USING (idUser) JOIN activity USING (idActivity);";
+        $sql = $sql = "SELECT * FROM comment JOIN user USING (idUser) JOIN activity USING (idActivity);";
         return $this->query($sql);
     }
 
@@ -274,7 +279,7 @@ class SWTurismo extends DB
         session_start();
 
         // verify if there is admin logged in
-        if (isset($_SESSION['admin'])) {
+        if (!isset($_SESSION['admin'])) {
             header("location:index.php");
         }
     }
@@ -291,7 +296,7 @@ class SWTurismo extends DB
         $img = $this->query($sql);
 
         // sql query to insert an activity
-        $sql = "INSERT INTO activity (name, desc, idAdmin, idImage) VALUES (:name, :desc, :idAdmin, :img)";
+        $sql = "INSERT INTO activity (name, activity.desc, idAdmin, idImage) VALUES (:name, :desc, :idAdmin, :img)";
         // create array of fields for the activity
         $fields = array(
             'name' => $name,
@@ -316,7 +321,7 @@ class SWTurismo extends DB
         //TODO: implement update img
 
         // sql query to update an activity
-        $sql = "UPDATE activity SET name = :name, desc = :desc, idAdmin = :idAdmin WHERE idActivity = :idActivity";
+        $sql = "UPDATE activity SET name = :name, activity.desc = :desc, idAdmin = :idAdmin WHERE idActivity = :idActivity";
         // create array of fields for the activity
         $fields = array(
             'name' => $name,
@@ -328,36 +333,6 @@ class SWTurismo extends DB
 
         // put the fields and the sql query + execute query
         $this->query($sql, $fields);
-    }
-
-    public function deleteReservation($idUser, $idActivity)
-    {
-        // sql query to delete a reservation
-        $sql = 'DELETE FROM reservation WHERE idUser = :idUser AND idActivity = :idActivity';
-        // put the sql query + execute query
-        $this->query($sql, array('idUser' => $idUser, 'idActivity' => $idActivity));
-    }
-
-    public function countActivity()
-    {
-        // sql query to count the activities
-        $sql = 'SELECT COUNT(*) FROM activity';
-        // put the sql query + execute query
-        $result = $this->query($sql);
-        return $result[0]['COUNT(*)'];
-
-        //var_dump($result);
-    }
-
-    public function countUser()
-    {
-        // sql query to count the activities
-        $sql = 'SELECT COUNT(*) FROM user';
-        // put the sql query + execute query
-        $result = $this->query($sql);
-        return $result[0]['COUNT(*)'];
-
-        //var_dump($result);
     }
 
     public function listReservationsAdmin($idActivity)

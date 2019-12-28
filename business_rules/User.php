@@ -36,12 +36,4 @@ class User
         return $this->name;
     }
 
-    /**
-     * function to do the user logout
-     */
-    public function logout()
-    {
-        session_destroy();
-        header('');
-    }
 }

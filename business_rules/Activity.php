@@ -7,15 +7,13 @@ class Activity
     private $name;
     private $desc;
     private $idAdmin;
-    private $idImage;
 
-    public function __construct($idActivity, $name, $desc, $idAdmin, $idImage)
+    public function __construct($idActivity, $name, $desc, $idAdmin)
     {
         $this->idActivity = $idActivity;
         $this->name = $name;
         $this->desc = $desc;
         $this->idAdmin = $idAdmin;
-        $this->idImage = $idImage;
     }
 
     /**
