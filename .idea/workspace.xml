@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="513ed44e-be68-4208-9946-7dcae6db186f" name="Default Changelist" comment="" />
+    <list default="true" id="513ed44e-be68-4208-9946-7dcae6db186f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/swturismo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swturismo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/activity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/createActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/createActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/deleteActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deleteActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/updateActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/updateActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business_rules/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/business_rules/Activity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business_rules/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/business_rules/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business_rules/SWTurismo.php" beforeDir="false" afterPath="$PROJECT_DIR$/business_rules/SWTurismo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/business_rules/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/business_rules/User.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +23,15 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,16 +44,21 @@
     </option>
   </component>
   <component name="ProjectId" id="1UO7Y0JLLf3DuodrjlDaalOjSZt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -41,6 +67,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -69,7 +96,59 @@
       <workItem from="1575309705953" duration="10469000" />
       <workItem from="1575382208783" duration="74000" />
       <workItem from="1575493929274" duration="6736000" />
-      <workItem from="1575562009345" duration="11909000" />
+      <workItem from="1575562009345" duration="12174000" />
+      <workItem from="1575651355737" duration="2468000" />
+      <workItem from="1575653834232" duration="1593000" />
+      <workItem from="1575724872924" duration="193000" />
+      <workItem from="1575725092735" duration="4000" />
+      <workItem from="1575725373937" duration="13848000" />
+      <workItem from="1575913806831" duration="8168000" />
+      <workItem from="1575925091178" duration="4954000" />
+      <workItem from="1575980105090" duration="901000" />
+      <workItem from="1575987333150" duration="43000" />
+      <workItem from="1576003852196" duration="1007000" />
+      <workItem from="1576068003313" duration="16704000" />
+      <workItem from="1576089332361" duration="20000" />
+      <workItem from="1576144386268" duration="6000" />
+      <workItem from="1576168141918" duration="3916000" />
+      <workItem from="1576176177522" duration="5000" />
+      <workItem from="1576176380412" duration="104000" />
+      <workItem from="1576181903902" duration="6000" />
+      <workItem from="1576182983132" duration="4000" />
+      <workItem from="1576335823641" duration="7384000" />
+      <workItem from="1576357845823" duration="439000" />
+      <workItem from="1576358593240" duration="5567000" />
+      <workItem from="1576518711448" duration="1034000" />
+      <workItem from="1576524130571" duration="7000" />
+      <workItem from="1576606352899" duration="4653000" />
+      <workItem from="1576614082191" duration="722000" />
+      <workItem from="1576614878424" duration="6751000" />
+      <workItem from="1576664717361" duration="51000" />
+      <workItem from="1576674982025" duration="7000" />
+      <workItem from="1576675834545" duration="326000" />
+      <workItem from="1576684169770" duration="108000" />
+      <workItem from="1576684500225" duration="2170000" />
+      <workItem from="1576749031287" duration="6000" />
+      <workItem from="1576790830848" duration="2660000" />
+      <workItem from="1576793532399" duration="1996000" />
+      <workItem from="1576842182132" duration="3711000" />
+      <workItem from="1576864732105" duration="7447000" />
+      <workItem from="1577017253612" duration="12451000" />
+      <workItem from="1577103383662" duration="9834000" />
+      <workItem from="1577194008133" duration="12147000" />
+      <workItem from="1577365396009" duration="2664000" />
+      <workItem from="1577372527788" duration="400000" />
+      <workItem from="1577372956848" duration="174000" />
+      <workItem from="1577376883338" duration="1807000" />
+      <workItem from="1577378848096" duration="16614000" />
+      <workItem from="1577448978922" duration="8599000" />
+      <workItem from="1577461967458" duration="1206000" />
+      <workItem from="1577463222369" duration="6000" />
+      <workItem from="1577464038975" duration="5544000" />
+      <workItem from="1577471332076" duration="9000" />
+      <workItem from="1577540255755" duration="2305000" />
+      <workItem from="1577542574652" duration="487000" />
+      <workItem from="1577543151014" duration="25000" />
     </task>
     <servers />
   </component>
@@ -77,13 +156,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="755" y="445" width="399" height="149" key="NewPhpFileDialog" timestamp="1575309799615">
+    <state x="836" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576869299481">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="755" y="445" width="399" height="149" key="NewPhpFileDialog/0.27.1920.988@0.27.1920.988" timestamp="1575309799615" />
+    <state x="836" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.988@0.27.1920.988" timestamp="1576869299481" />
+    <state x="693" y="269" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577383782590">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="693" y="269" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.988@0.27.1920.988" timestamp="1577383782590" />
+    <state x="501" y="297" width="908" height="633" key="EditFileWatcherDialog" timestamp="1575652070241">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="501" y="297" width="908" height="633" key="EditFileWatcherDialog/0.27.1920.988@0.27.1920.988" timestamp="1575652070241" />
+    <state x="726" y="333" width="457" height="373" key="NewPhpClassDialog" timestamp="1576523643219">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="726" y="333" width="457" height="373" key="NewPhpClassDialog/0.27.1920.988@0.27.1920.988" timestamp="1576523643219" />
+    <state x="755" y="445" width="399" height="149" key="NewPhpFileDialog" timestamp="1577541828105">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="755" y="445" width="399" height="149" key="NewPhpFileDialog/0.27.1920.988@0.27.1920.988" timestamp="1577541828105" />
+    <state x="449" y="155" key="SettingsEditor" timestamp="1577037411202">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="449" y="155" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1577037411202" />
     <state x="616" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1575382215880">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
     <state x="616" y="347" key="com.intellij.ide.util.TipDialog/0.27.1920.988@0.27.1920.988" timestamp="1575382215880" />
+    <state x="623" y="241" width="672" height="678" key="search.everywhere.popup" timestamp="1577209454357">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="623" y="241" width="672" height="678" key="search.everywhere.popup/0.27.1920.988@0.27.1920.988" timestamp="1577209454357" />
   </component>
 </project>
