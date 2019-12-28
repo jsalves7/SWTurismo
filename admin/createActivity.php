@@ -9,27 +9,20 @@
 
     $success = "";
 
-    if (isset($_POST['name']) && isset($_POST['desc']) && isset($_FILES['image'])) {
+    if (isset($_POST['name']) && isset($_POST['desc']) && isset($_FILES['image']['name'])) {
 
         // specifying the the folder path
         $folderPath = "../img/";
         // specifying the file
-        $destination = $folderPath.$_FILES['name']['image'];
+        $destination = $folderPath.$_FILES['image']['name'];
         // temporarily storing the image
-        $temp = $_FILES['tmp_name']['image'];
+        $temp = $_FILES['image']['tmp_name'];
 
         move_uploaded_file($temp, $destination);
 
-        if ($conn->addActivity($_POST['name'], $_POST['desc'], $_SESSION['admin']->getIdAdmin(), $_FILES['name']['image'])) {
-            $success =  "<script> alert('A atividade foi criada com sucesso!') </script>";
-        }
-    }
+        $conn->addActivity($_POST['name'], $_POST['desc'], $_SESSION['admin']->idAdmin(), $_FILES['image']['name']);
 
-    // if logout button is pressed
-    if (isset($_GET['action'])){
-        if ($_GET['action'] == 'logout'){
-            $_SESSION['admin']->logout();
-        }
+        $success =  "<script> alert('A atividade foi criada com sucesso!') </script>";
     }
 
 ?>
@@ -49,7 +42,7 @@
         <ul id="menu">
             <li><a href="admin.php">Atividades</a></li>
             <li><a href="contactos.php">Contactos</a></li>
-            <li><a href="?logout">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
 
         <form method="get" class="searchForm">

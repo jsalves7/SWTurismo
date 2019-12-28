@@ -13,13 +13,6 @@
         $success =  "<script> alert('A atividade foi eliminada com sucesso!') </script>";
     }
 
-    // if logout button is pressed
-    if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'logout') {
-            $_SESSION['admin']->logout();
-        }
-    }
-
 ?>
 
 
@@ -33,11 +26,11 @@
 <body>
 <div class="container">
     <div class="menu-container">
-        <a href="index.php"><h1>SWTurismo</h1></a>
+        <a href="admin.php"><h1>SWTurismo</h1></a>
 
         <ul id="menu">
             <li><a href="Contactos">Contactos</a></li>
-            <li><a href="?logout">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
 
         <form method="get" class="searchForm">
@@ -68,7 +61,7 @@
                         echo "<table>
                                 <tr>
                                     <td><a href='activity.php?id=" . $value['idActivity'] . "'>" . $value['name'] . "</a></td>
-                                    <td><a href='deleteActivity.php?id=" . $value['idActivity'] . "'>Eliminar</><br></td>
+                                    <td><a href='deleteActivity.php?id=" . $value['idActivity'] . "' onclick=\"return confirmation()\">Eliminar</><br></td>
                                     <td><a href='updateActivity.php?id=" . $value['idActivity'] . "'>Editar</a><br></td>
                                 </tr>
                             </table>";
@@ -85,7 +78,7 @@
                         echo "<table>
                                 <tr>
                                     <td><a href='activity.php?id=" . $value['idActivity'] . "'>" . $value['name'] . "</a></td>
-                                    <td><a href='deleteActivity.php?id=" . $value['idActivity'] . "'>Eliminar</><br></td>
+                                    <td><a href='deleteActivity.php?id=" . $value['idActivity'] . "' onclick=\"return confirmation()\">Eliminar</><br></td>
                                     <td><a href='updateActivity.php?id=" . $value['idActivity'] . "'>Editar</a><br></td>
                                 </tr>
                               </table>";
@@ -113,6 +106,11 @@
         </div>
     </footer>
 </div>
+<script type="text/javascript">
+    function confirmation() {
+        return confirm('Eliminar?');
+    }
+</script>
 </body>
 </html>
 

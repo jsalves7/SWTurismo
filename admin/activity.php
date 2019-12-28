@@ -22,12 +22,7 @@
         header("location:admin.php");
     }
 
-    // if logout button is pressed
-    if (isset($_GET['action'])){
-        if ($_GET['action'] == 'logout'){
-            $_SESSION['admin']->logout();
-        }
-    }
+
 ?>
 
 
@@ -46,7 +41,7 @@
         <ul id="menu">
             <li><a href="admin.php">Atividades</a></li>
             <li><a href="contactos.php">Contactos</a></li>
-            <li><a href="?logout">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
 
         <form method="get" class="searchForm">
@@ -88,7 +83,7 @@
                         $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
                         // decrypt data
-                        echo openssl_decrypt(base64_decode($value['name']), $method, $password, OPENSSL_RAW_DATA, $iv); ?>
+                        echo openssl_decrypt(base64_decode($value['cardName']), $method, $password, OPENSSL_RAW_DATA, $iv); ?>
                     </td>
                     <td>
                         <form class='state-form' method='post' action='activity.php?id=<?php echo $value['idActivity']; ?>'>
@@ -109,7 +104,7 @@
                         <?php echo openssl_decrypt(base64_decode($value['cardType']), $method, $password, OPENSSL_RAW_DATA, $iv);?>
                     </td>
                     <td>
-                        <?php echo openssl_decrypt(base64_decode($value['securityCode']), $method, $password, OPENSSL_RAW_DATA, $iv);?>
+                        <?php echo openssl_decrypt(base64_decode($value['cardCVV']), $method, $password, OPENSSL_RAW_DATA, $iv);?>
                     </td>
                 <?php } ?>
             </table>

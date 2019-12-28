@@ -13,23 +13,16 @@
         header("location:admin.php");
     }
 
-    if ($idActivity['idAdmin'] != $_SESSION['admin']->getIdAdmin()){
+    if ($idActivity['idAdmin'] != $_SESSION['admin']->idAdmin()){
         header("location:admin.php");
     }
 
     $success = "";
 
     if(isset($_POST['name']) || isset($_POST['desc'])){
-        $conn->updateActivity($idActivity['idActivity'], $_POST['name'], $_POST['desc'], $_SESSION['admin']->getIdAdmin());
+        $conn->updateActivity($idActivity['idActivity'], $_POST['name'], $_POST['desc'], $_SESSION['admin']->idAdmin());
 
         $success =  "<script> alert('A atividade foi editada com sucesso!') </script>";
-    }
-
-    // if logout button is pressed
-    if (isset($_GET['action'])){
-        if ($_GET['action'] == 'logout'){
-            $_SESSION['admin']->logout();
-        }
     }
 
 ?>
@@ -49,7 +42,7 @@
         <ul id="menu">
             <li><a href="admin.php">Atividades</a></li>
             <li><a href="Contactos">Contactos</a></li>
-            <li><a href="?logout">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
 
         <form method="get" class="searchForm">
@@ -60,7 +53,7 @@
 
     <div class="updateActivity-container">
         <div class="activityTitle-container">
-            <h2>Editar Atividade <?php echo $idActivity['name'] ?></h2>
+            <h2>Editar <?php echo $idActivity['name'] ?></h2>
         </div>
 
         <div class="updateActivityForm-container">

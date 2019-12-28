@@ -14,8 +14,5 @@
 
     if ($conn->deleteActivity($idActivity['idActivity'])) {
         echo "<script> alert('Atividade apagada com sucesso!') </script>";
-        header("location:administrator.php?deleted");
-    } else {
-        echo "<script> alert('Não foi possivel apagar a atividade!') </script>";
+        header("location:admin.php?deleted");
     }
-
